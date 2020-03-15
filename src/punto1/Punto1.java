@@ -5,16 +5,23 @@ import java.util.Scanner;
 public class Punto1 {
     public static void main(String args[]) {
         Scanner teclado = new Scanner(System.in);
+        int invertido = 0, resto;
 
-        System.out.println("ingrese el numero de la tabla de multiplicar que desea ver ");
+        System.out.println("Ingrese un numero entre o y 9999");
+        int numero = teclado.nextInt();
 
-        int valor = teclado.nextInt();
-
-        int i;
-
-        for (i = 1; i <= 10; i++) {
-            System.out.println(valor + " x " + i + " = " + (valor * i));
+        if( numero <= 9999 && numero >= 0) {
+            while(numero > 0) {
+                resto = numero % 10;
+                invertido = invertido * 10 + resto;
+                numero /= 10;
+            }
+            System.out.println("Numero invertido: " + invertido);
+        }else {
+            System.out.println("Numero fuera de rango");
         }
+
+
 
     }
 }
